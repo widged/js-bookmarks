@@ -79,8 +79,7 @@ fs.createReadStream('js-assets.nedb', {objectMode: true})
     .pipe(through(function(line) {
       var strm = this;
       if(!line || !line.length) { return; }
-      var {p,name,tags,terms,others,url} = JSON.parse(line);
-      console.log('===========')
+      var {p,name,tags,terms,others,url, description} = JSON.parse(line);
       if(!Array.isArray(others)) { others = []; }
 
       tags = tags.reduce((acc, d, i) => {
@@ -112,7 +111,7 @@ fs.createReadStream('js-assets.nedb', {objectMode: true})
         fmt = 'gtb:' + p.replace('https://gist.githubusercontent.com/', '').replace(short, '').replace('/raw/','').replace('/thumbnail.png','');
         console.log(fmt)
        }
-       var line = [short, name, fmt,tags.join(';'),terms.join(';'),others.join(';')].join('\t');
+       var line = [short, name, description, fmt,tags.join(';'),terms.join(';'),others.join(';')].join('\t');
        // 1wheel/0fe7b82d7c188c2d26a3	s	coord:cartesian	lg:d3;lg:svg;algo:nest;std:csv;geom:axis;gshape:line	d3.time.wednesdays;d3.time.day;d3.time.wednesday;d3.time.format;d3.time.scale;d3.time;Classic;Cubs
        console.log(line)
       strm.queue(line + '\n')
