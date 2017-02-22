@@ -1,0 +1,25 @@
+multi-select {
+  display: block;
+  position: relative;
+  min-height: 100px;
+  font-size: 9px;
+  width: 100%;
+}
+multi-select input {
+  width: 100%;
+}
+
+multi-select .selection  {
+  min-height: 16px;
+}
+
+multi-select .selectable {
+  position: absolute;
+  background-color: white;
+  z-index: 80;
+}
+
+
+multi-select .selectable.inactive {
+  display: none;
+}
