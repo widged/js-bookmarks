@@ -10,7 +10,7 @@ class BookmarksImporter {
         var db = tsv.split("\n").reduce((acc, d, i) => {
         if(d.length) {
           // 	line graph with multipe datapoints		coord:cartesian	fn:visualisation;lg:js;+:d3;gscale:time	time-series;line-graph with multipe datapoints
-          var [src, name, fmt, tags, terms, others] = d.split('\t');
+          var [src, name, description,fmt, tags, terms, others] = d.split('\t');
           tags = (tags || '').split(';');
           tags.forEach((t) => { aTags.add(t); });
           terms = (terms || '').split(';');
@@ -21,7 +21,7 @@ class BookmarksImporter {
           });
           others = (others || '').split(';');
           var fmt = '';
-          var doc = {src, name, fmt, tags, terms, others};
+          var doc = {src, description, name, fmt, tags, terms, others};
           acc.push(doc);
         }
         return acc;

@@ -61,6 +61,7 @@ class BookmarkItemPrivate {
     var terms  = data.terms.map(itemNode).join(' ');
     var others = data.others.map(itemNode).join(' ');
     var name = data.name;
+    var description = data.description;
 
 
     const fmt = data.fmt;
@@ -72,12 +73,13 @@ class BookmarkItemPrivate {
     }
 
     var   blockLinks =  `<div>
-    <span data-src="gist">source</span>
-    </div><div><span>${name}</span></div>
+
+    </div><div><h3>${name} <span data-src="gist"></span></h3></div>
+    <div><span>${description}</span></div>
     `;
     node.innerHTML = `
     <div class="preview">
-    <div class="thumb"><img data-path="${thumbPath}" src="${thumbPath}" alt="svg"></div>
+    <div class="thumb"><img data-path="${thumbPath}" src="${thumbPath}" alt="preview"></div>
     <div class="links">${blockLinks}</div>
     </div>
     <div class="desc">

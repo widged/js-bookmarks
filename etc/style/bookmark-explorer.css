@@ -46,6 +46,11 @@ item-list .tagged.terms item {
   border: 1px solid #a386d5;
 }
 
+.query-options .free {
+  margin-top: 16px;
+}
+
+
 item-list .tagged.others item {
   background: #f8fbe0;
   border: 1px solid #e0ee86;

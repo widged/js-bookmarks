@@ -11,6 +11,11 @@ bookmark-item {
   overflow-y: auto;
 }
 
+bookmark-item .preview {
+  max-width: 160px;
+  padding: 3px;
+}
+
 bookmark-item .thumb {
   position: relative;
 }
@@ -19,8 +24,9 @@ bookmark-item .thumb img {
   position: relative;
   width: 160px;
   max-width: 160px;
-  height: 100px;
+  height: 0px;
   padding-right: 6px;
+  visibility: hidden;
   /* pointer-events: none; */
 }
 
