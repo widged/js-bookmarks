@@ -2,11 +2,10 @@
 
 class BookmarkExplorerPrivate {
 
-  constructor({itemsPerPage, paginationDelta, tags, terms, free, nopic}) {
+  constructor({itemsPerPage, paginationDelta, tags, terms, free:freeFilter, nopic}) {
     if(!Array.isArray(tags)) { tags = []; }
     if(!Array.isArray(terms)) { terms = []; }
-    var freeFilter;
-    if(!freeFilter) { freeFilter = 'recommend'; }
+    if(!freeFilter) { freeFilter = ''; }
     this.props = Object.assign({itemsPerPage, paginationDelta}, { itemsPerPage : 48, paginationDelta: 4 });
     this.debounced = {
       queryDb : new Debouncer(100, () => { this.queryDb(); })
@@ -112,7 +111,7 @@ class BookmarkExplorerPrivate {
     var options = {};
     // get options
     const hasLength = (d) => { console.log('xx', d); return d.length; };
-    const hasTags   = (sTags && Array.isArray(sTags)  && sTags.filter(hasLength).length); 
+    const hasTags   = (sTags && Array.isArray(sTags)  && sTags.filter(hasLength).length);
     const hasTerms  = (sTerms && Array.isArray(sTags) && sTerms.filter(hasLength).length);
 
     console.log(terms, hasTerms)
