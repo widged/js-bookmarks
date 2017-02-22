@@ -107,11 +107,15 @@ class BookmarkExplorerPrivate {
   queryDb() {
     const {db, tags: sTags, terms: sTerms, freeFilter, nopic} = this.state.get();
 
+    console.log(terms, sTerms)
+
     var options = {};
     // get options
-    const hasLength = (d) => { return d.length; };
-    const hasTags   = (tags && Array.isArray(tags)     && tags.filter(hasLength).length);
-    const hasTerms  = (terms && Array.isArray(terms)   && terms.filter(hasLength).length);
+    const hasLength = (d) => { console.log('xx', d); return d.length; };
+    const hasTags   = (sTags && Array.isArray(sTags)  && sTags.filter(hasLength).length); 
+    const hasTerms  = (sTerms && Array.isArray(sTags) && sTerms.filter(hasLength).length);
+
+    console.log(terms, hasTerms)
 
     var searchFn;
     if(hasTags || hasTerms || freeFilter) {
@@ -123,12 +127,8 @@ class BookmarkExplorerPrivate {
         if (hasTags    && !Haystack.allOf(tags, sTags))   { isIn = false; }
         if (hasTerms   && !Haystack.allOf(terms, sTerms)) { isIn = false; }
         if (freeFilter && `${name} ${description} ${others}`.indexOf(freeFilter.toLowerCase()) === -1) { isIn = false; }
-        /*
-        (!hasTags || Haystack.allOf(this.tags, tags)) &&
-               (!hasTerms || Haystack.allOf(this.terms, terms)) &&
-               (!hasOthers || Haystack.allOf(this.others, others)) &&
-               (!freeFilter || `${this.name} ${this.description} ${this.others}`.toLowerCase().indexOf(freeFilter.toLowerCase()) !== -1 );
-               */
+
+        // console.log(terms, sTerms, !Haystack.allOf(terms, sTerms))
 
         return isIn;
       };
