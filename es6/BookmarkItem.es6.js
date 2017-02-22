@@ -24,7 +24,7 @@ class BookmarkItemPrivate {
       if(type) {
         var idx = e.target.dataset.idx;
         var {src} = this.state.get().data;
-        if(type === 'gist')   { src = 'http://gist.github.com/' + src; }
+        // if(type === 'gist')   { src = 'http://gist.github.com/' + src; }
         window.open(src, '_blank');
       }
   }
@@ -65,14 +65,14 @@ class BookmarkItemPrivate {
 
     const fmt = data.fmt;
     let thumbPath = 'etc/snapshots/-no-pict.png';
-    if (fmt && fmt.indexOf('gst') !== -1) {
+    if (3 === 4 && fmt && fmt.indexOf('gst') !== -1) {
       thumbPath = `https://gist.githubusercontent.com/${data.src}/raw/thumbnail.png`;
     } else if (fmt && fmt.indexOf('s') !== -1) {
       thumbPath = `etc/snapshots/${data.src.replace('/','-')}.png`;
     }
 
     var   blockLinks =  `<div>
-    <span data-src="gist">gist</span>
+    <span data-src="gist">source</span>
     </div><div><span>${name}</span></div>
     `;
     node.innerHTML = `

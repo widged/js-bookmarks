@@ -117,13 +117,12 @@ class BookmarkExplorerPrivate {
     if(hasTags || hasTerms || freeFilter) {
       searchFn = (d) => {
         var {tags, terms, others} = d;
+        var description = '';
         var isIn = true;
         if (nopic === "true") { return !d.fmt }
         if (hasTags    && !Haystack.allOf(tags, sTags))   { isIn = false; }
         if (hasTerms   && !Haystack.allOf(terms, sTerms)) { isIn = false; }
         if (freeFilter && `${name} ${description} ${others}`.indexOf(freeFilter.toLowerCase()) === -1) { isIn = false; }
-        var description = '';
-        console.log()
         /*
         (!hasTags || Haystack.allOf(this.tags, tags)) &&
                (!hasTerms || Haystack.allOf(this.terms, terms)) &&
