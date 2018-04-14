@@ -1,31 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title></title>
-	<link rel="stylesheet" href="etc/style/bookmark-explorer.css">
-	<link rel="stylesheet" href="etc/style/bookmark-item.css">
-	<link rel="stylesheet" href="es6/multi-select/style/multi-select-defaults.css">
-	<link rel="stylesheet" href="es6/multi-select/style/removable-items-defaults.css">
-	<link rel="stylesheet" href="es6/multi-select/style/selectable-items-defaults.css">
-	<link rel="stylesheet" href="es6/page-navigator/style/page-navigator-defaults.css">
-	<link rel="stylesheet" href="etc/style/item-list.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Asset Explorer</title>
+  <style>
+  body { margin: 0; padding: 0; }
+  </style>
 </head>
+
 <body>
+  <div id="app"></div>
+<script type="text/javascript" src="index_bundle.js"></script></body>
 
-	<a href="https://github.com/widged/d3js-bookmarks"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
-
-	<div id="app"></div>
-	<script src="bundle.js"></script>
-
-	<script>
-	var q = getQueryString();
-	var {tags, terms, others} = decodeQuery(q);
-	tags  = (typeof tags  === 'string') ? tags.split(';') : [];
-	terms = (typeof terms === 'string') ? terms.split(';') : [];
-	free = (typeof free === 'string') ? others.split(';') : [];
-	var app = new BookmarkExplorer({itemsPerPage: 48, paginationDelta: 4, tags, terms, free});
-	document.getElementById('app').appendChild(app.createElement());
-	</script>
-
-</body>
 </html>
